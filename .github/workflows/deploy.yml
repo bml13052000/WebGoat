@@ -32,7 +32,7 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         run: |
           echo "$PRIVATE_KEY" > private_key.pem && chmod 600 private_key.pem
-          ssh -o StrictHostKeyChecking=no -i private_key.pem ${USER_NAME}@${HOSTNAME} '
+          ssh -o StrictHostKeyChecking=no -i private_key.pem ${USER_NAME}@ec2-3-90-214-216.compute-1.amazonaws.com '
             rm -rf /home/ubuntu/<your-repo-name>
             git clone <your-repo-link>.git
             cd <your-repo>
