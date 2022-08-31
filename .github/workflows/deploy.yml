@@ -38,6 +38,7 @@ jobs:
            sudo docker run -it -p 80:8888 -p 8080:8080 -p 9090:9090 -e TZ=Europe/Amsterdam webgoat/goatandwolf:v8.2.2
           '
           rm -rf private_key.pem
+          #comment
       - name: Remove github actions IP from security group
         env:
           AWS_SECURITY_GROUP: ${{ secrets.AWS_SECURITY_GROUP }}
