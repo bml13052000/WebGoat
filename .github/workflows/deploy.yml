@@ -33,13 +33,9 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > private_key.pem && chmod 600 private_key.pem
           ssh -o StrictHostKeyChecking=no -i private_key.pem ${USER_NAME}@${HOSTNAME} '
-            rm -rf /home/ubuntu/WebGoat
-            git clone https://github.com/bml13052000/WebGoat.git
-            cd WebGoat
-            git checkout master
-            git pull origin master
-            sudo chmod +x ./deploy.sh
-            ./deploy.sh
+           sudo apt-get update
+           sudo apt install docker.io
+           sudo docker run -it -p 80:8888 -p 8080:8080 -p 9090:9090 -e TZ=Europe/Amsterdam webgoat/goatandwolf:v8.2.2
           '
           rm -rf private_key.pem
       - name: Remove github actions IP from security group
