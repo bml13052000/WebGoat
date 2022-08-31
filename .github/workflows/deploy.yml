@@ -35,7 +35,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i private_key.pem ${USER_NAME}@${HOSTNAME} '
            sudo apt-get update
            sudo apt -y install docker.io
-           sudo docker run -it -p 80:8888 -p 8080:8080 -p 9090:9090 -e TZ=Europe/Amsterdam webgoat/goatandwolf:v8.2.2
+           sudo docker run -p 80:8888 -p 8080:8080 -p 9090:9090 -e TZ=Europe/Amsterdam webgoat/goatandwolf:v8.2.2
           '
           rm -rf private_key.pem
           #comment
