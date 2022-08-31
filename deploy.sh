@@ -22,7 +22,7 @@ sudo systemctl restart nginx
 sudo docker login -u baivabmaulik -p Betu@1320
 
 # build dockerfile
-sudo docker build -f Dockerfile -t demo:latest .
+sudo docker build -f webgoat-server/Dockerfile -t demo:latest .
 
 # run in detached mode
 sudo docker run -p 8080:8080 -d demo:latest
