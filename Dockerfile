@@ -8,7 +8,7 @@ RUN mvn clean package -DskipTests
 # Using java 11
 FROM openjdk:11-jdk
 
-ARG JAR_FILE=/usr/src/app/target/*.jar
+ARG JAR_FILE=/usr/src/app/webgoat-server/target/*.jar
 # Copying JAR file
 COPY --from=maven ${JAR_FILE} app.jar
 
