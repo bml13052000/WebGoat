@@ -18,14 +18,9 @@ sudo cp nginx.conf /etc/nginx/conf.d/default.conf
 
 sudo systemctl restart nginx
 
-#login to docker
-sudo docker login -u baivabmaulik -p Betu@1320
-
-# build dockerfile
-sudo docker build -f webgoat-server/Dockerfile -t demo:latest .
 
 # run in detached mode
-sudo docker run -p 8080:8080 -d demo:latest
+docker run -it -p 80:8888 -p 8080:8080 -p 9090:9090 -e TZ=Europe/Amsterdam -d webgoat/goatandwolf:v8.2.2
 
 sleep 15
 
