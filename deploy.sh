@@ -18,6 +18,9 @@ sudo cp nginx.conf /etc/nginx/conf.d/default.conf
 
 sudo systemctl restart nginx
 
+#login to docker
+sudo docker login -u baivabmaulik -p Betu@1320
+
 # build dockerfile
 sudo docker build -f Dockerfile -t demo:latest .
 
