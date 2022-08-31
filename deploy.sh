@@ -11,7 +11,8 @@ yes | sudo apt install apt-transport-https ca-certificates curl software-propert
 yes | sudo apt install docker.io
 
 # make sure demo docker is not running
-sudo docker rm $(sudo docker stop $(sudo docker ps -a -q --filter ancestor=demo:latest --format="{{.ID}}"))
+sudo docker rm $(sudo docker stop $(sudo docker ps -a -q --filter ancestor=webgoat/goatandwolf:v8.2.2
+ --format="{{.ID}}"))
 
 # copy nginx conf to default
 sudo cp nginx.conf /etc/nginx/conf.d/default.conf
@@ -20,7 +21,7 @@ sudo systemctl restart nginx
 
 
 # run in detached mode
-docker run -it -p 80:8888 -p 8080:8080 -p 9090:9090 -e TZ=Europe/Amsterdam -d webgoat/goatandwolf:v8.2.2
+sudo docker run -it -p 80:8888 -p 8080:8080 -p 9090:9090 -e TZ=Europe/Amsterdam -d webgoat/goatandwolf:v8.2.2
 
 sleep 15
 
