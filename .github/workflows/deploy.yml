@@ -11,8 +11,7 @@ jobs:
         uses: snyk/actions/setup@master
         env: 
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          command: monitor
+        run: snyk test
 
       - name: Get Github action IP
         id: ip
