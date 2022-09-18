@@ -11,7 +11,7 @@ jobs:
         uses: snyk/actions/setup@master
       
       - name: Snyk test dependencies
-        run: snyk test --org=4683e14b-5e8a-47fa-babc-bebc533f7d71 --file=pom.xml
+        run: ls
         env: 
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
