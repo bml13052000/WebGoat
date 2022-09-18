@@ -7,13 +7,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Snyk install
-        uses: snyk/actions/setup@master
-      
-      - name: Snyk test dependencies
-        uses: snyk/actions/maven-3-jdk-11@master
-        env: 
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
       - name: Get Github action IP
         id: ip
