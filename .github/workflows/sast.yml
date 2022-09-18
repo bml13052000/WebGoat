@@ -1,18 +1,13 @@
-name: Run Snyk Test
-on:
-  push:
-    branches:
-      - develop
-
+name: Example workflow for Maven using Snyk
+on: push
 jobs:
-  SAST:
+  security:
     runs-on: ubuntu-latest
     steps:
-
-      - name: Snyk install
-        uses: snyk/actions/setup@master
-      
-      - name: Snyk test
-        run: snyk test
-        env: 
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/maven@master
+        env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high
