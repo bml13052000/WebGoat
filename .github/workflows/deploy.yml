@@ -11,8 +11,7 @@ jobs:
         uses: snyk/actions/setup@master
       
       - name: Snyk test dependencies
-        run: |
-              ls
+        run: snyk test --file=WebGoat/pom.xml
         env: 
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
