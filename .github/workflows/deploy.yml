@@ -7,11 +7,13 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Snyk Test dependency
+      - name: Snyk
         uses: snyk/actions/setup@master
         env: 
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        run: snyk test
+        jobs:
+          - name: Snyk test
+          - run: snyk test
 
       - name: Get Github action IP
         id: ip
