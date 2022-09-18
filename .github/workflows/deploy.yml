@@ -9,11 +9,11 @@ jobs:
     steps:
       - name: Snyk install
         uses: snyk/actions/setup@master
-        env: 
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       
       - name: Snyk test dependencies
-        run: snyk test 
+        run: snyk test
+        env: 
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
       - name: Get Github action IP
         id: ip
